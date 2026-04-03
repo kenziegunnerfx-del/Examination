@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>FRANK'S VILLA</title>
+    <script src="script/aframe.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+    
+
+    <style>
+      #ui {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        z-index: 999;
+        pointer-events: none;
+      }
+
+      .teleportBtn {
+        display: block;
+        width: 35px;
+        height: 35px;
+        margin-bottom: 5px;
+        border: 2px solid white;
+        background: transparent;
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+
+      .teleportBtn:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <a-scene>
+      <!-- UI Buttons -->
+      <div id="ui">
+        <button id="upBtn" class="teleportBtn">↑</button>
+        <button id="downBtn" class="teleportBtn">↓</button>
+      </div>
+
+      <!-- Camera Rig -->
+      <a-entity id="cameraRig" position="0 80 300" wasd-controls="acceleration: 2200">
+        <a-camera look-controls="pointerLockEnabled: false"></a-camera>
+      </a-entity>
+
+      <!-- ASSETS -->
+      <a-assets>
+        <img id="skyTexture" src="textures/sky background.jpeg" />
+        <img id="fenceTexture" src="textures/concrete.jpeg" />
+        <!-- <video id="waterVideo" autoplay loop muted playsinline src="textures/water-loop.mp4"></video> -->
+
+        <a-assets-item id="villa" src="assets/last villa/scene.gltf"></a-assets-item>
+        <a-assets-item id="fence12" src="assets/fence12/scene.gltf"></a-assets-item>
+        <a-assets-item id="pool" src="assets/pool/scene.gltf"></a-assets-item>
+        <a-assets-item id="wyvernCar" src="assets/vehicles/wyvern_concept_car_-_free/scene.gltf"></a-assets-item>
+        <a-assets-item id="luxuryCar" src="assets/vehicles/luxury_car__convertible_car/scene.gltf"></a-assets-item>
+        <a-assets-item id="pothosPlant" src="assets/plants/free_pothos_potted_plant_-_money_plant/scene.gltf"></a-assets-item>
+        <a-assets-item id="car2" src="assets/vehicles/car2/scene.gltf"></a-assets-item>
+        <!-- <a-assets-item id="gym" src="assets/lite_gym_pod_and_linen_service/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="tree" src="assets/realistic_palm_tree_4_free/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="bacony" src="assets/pool_4_2/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="car" src="assets/free_cyberpunk_hovercar_2/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="tree2" src="assets/bonsai_tree/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="snooker" src="assets/pool_test/scene.gltf"></a-assets-item>
+        <a-assets-item id="pool" src="assets/raymond/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="car2" src="assets/Car/scene.gltf"></a-assets-item> -->
+        <!-- <a-assets-item id="car3" src="assets/fictional_supercar_-_v12_goblin/scene.gltf"></a-assets-item> -->
+      </a-assets>
+
+      <!-- Models -->
+          <a-entity gltf-model="#villa" position="-150 2 -800" scale="40 40 40" ></a-entity>
+          <a-entity gltf-model="#pool" position="180 30 -800" scale="16 16 16"></a-entity>
+          <a-entity gltf-model="#wyvernCar" position="-400 0 -400" scale="8 8 8" rotation="0 0 0"></a-entity>
+          <a-entity gltf-model="#luxuryCar" position="-320 0 -300" scale="25 25 25" rotation="0 90 0"></a-entity>
+          <a-entity gltf-model="#car2" position="300 0 -200" scale="80 80 80" rotation="0 90 0"></a-entity>
+          
+          <!-- Plants around the fence outside -->
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -200" scale="75 75 75" rotation="0 45 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -200" scale="75 75 75" rotation="0 -45 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -400" scale="75 75 75" rotation="0 60 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -400" scale="75 75 75" rotation="0 -60 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -600" scale="75 75 75" rotation="0 75 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -600" scale="75 75 75" rotation="0 -75 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -800" scale="75 75 75" rotation="0 90 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -800" scale="75 75 75" rotation="0 -90 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -1000" scale="75 75 75" rotation="0 105 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -1000" scale="75 75 75" rotation="0 -105 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -1200" scale="75 75 75" rotation="0 120 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -1200" scale="75 75 75" rotation="0 -120 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-650 0 -1400" scale="75 75 75" rotation="0 135 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="650 0 -1400" scale="75 75 75" rotation="0 -135 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="0 0 -150" scale="75 75 75" rotation="0 0 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-200 0 -150" scale="75 75 75" rotation="0 20 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="200 0 -150" scale="75 75 75" rotation="0 -20 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-400 0 -150" scale="75 75 75" rotation="0 40 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="400 0 -150" scale="75 75 75" rotation="0 -40 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="0 0 -1450" scale="75 75 75" rotation="0 180 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-200 0 -1450" scale="75 75 75" rotation="0 160 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="200 0 -1450" scale="75 75 75" rotation="0 -160 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="-400 0 -1450" scale="75 75 75" rotation="0 140 0"></a-entity>
+          <a-entity gltf-model="#pothosPlant" position="400 0 -1450" scale="75 75 75" rotation="0 -140 0"></a-entity>
+      <!-- <a-entity gltf-model="#gym" position="-252 4  -1563" rotation="0 180 0"></a-entity>
+      <a-entity gltf-model="#tree" position="380 0 -550" rotation="0 180 0" scale="14 12 14" animation="property: rotation; to: 0 185 0; dur: 1000; easing: easeInOutSine; dir: alternate; loop: true"></a-entity>
+      <a-entity gltf-model="#bacony" position="190 3 -1293" rotation="0 -90 0"></a-entity>
+      <a-entity gltf-model="#pool" position="-420 7 -1120" rotation="0 180 0" scale="20 10 20" animation-mixer></a-entity>
+      <a-entity gltf-model="#car" position="290 0 0" rotation="0 180 0" scale="25 30 25" animation-mixer animation="property: position; to: 290 30 -50; dur: 7000; easing: linear; loop: true"></a-entity>
+      <a-entity gltf-model="#tree2" position="-300 -44 -500" rotation="0 0 0" scale="17 20 17" animation-mixer></a-entity>
+      <a-entity gltf-model="#snooker" position="420 0 -1480" rotation="0 0 0" scale="1 1.8 1.2"  animation-mixer="loop: repeat; timeScale: 1"></a-entity>
+      <a-entity gltf-model="#car2" position="400 0 -700" rotation="0 180 0" scale="30 40 30"  ></a-entity>
+      <a-entity gltf-model="#car3" position="460 0 -700" rotation="0 180 0" scale="30 40 30"  animation-mixer="loop: repeat; timeScale: 1"></a-entity>
+      <a-entity gltf-model="#oker" position="0 0 0" rotation="0 0 0" scale="1 1 1"  animation-mixer="loop: repeat; timeScale: 1"></a-entity> -->
+
+      <!-- Sky -->
+      <a-sky rotation="0 0 0" position="0 90 0" src="#skyTexture" radius="9000"></a-sky>
+
+              <!-- Tiled floor inside fence -->
+      <a-plane 
+        rotation="-90 0 0" 
+        position="0 3 -800" 
+        width="1130" 
+        height="1200" 
+        src="textures/tiles.jpeg" 
+        repeat="30 30">
+      </a-plane>
+
+      <!-- Ground (grass outside fence) --> 
+      <a-plane rotation="-90 -10 0" width="5000" position="0 1 0" height="5000" src="textures/grass1.jpeg" repeat="100 100"></a-plane> 
+      <!-- Water Pond using video texture -->
+      <a-plane position="-420 -16 -180" rotation="-90 0 0" width="20" height="14"
+               material="shader: flat; src: #waterVideo; transparent: true; repeat: 1 1;">
+      </a-plane> 
+      <!-- < Main Gate  -->
+      <a-box position="65 2 -180" width="90" height="105" depth="5" src="textures/maingate.JPG"></a-box> 
+
+      <!-- Front Wall (Aligned) -->
+      <a-box position="0 2 -200" width="1130" height="100" depth="2.5" src="#fenceTexture"></a-box>
+
+      Back Wall (Same Size as Front)
+      <a-box position="0 2 -1400" width="1130" height="100" depth="2.5" src="#fenceTexture"></a-box>
+
+      Left Wall (Equal Length)
+      <a-box position="-565 2 -800" width="2.5" height="100" depth="1200" src="#fenceTexture"></a-box>
+
+      <!-- Right Wall (Equal Length, aligned with front/back) -->
+      <a-box position="565 2 -800" width="2.5" height="100" depth="1200" src="#fenceTexture"></a-box>
+
+
+    </a-scene>
+    <script>
+      document.getElementById('upBtn').addEventListener('click', function () {
+        const rig = document.getElementById('cameraRig');
+        rig.setAttribute('position', '0 200 -1100');
+      });
+
+      document.getElementById('downBtn').addEventListener('click', function () {
+        const rig = document.getElementById('cameraRig');
+        rig.setAttribute('position', '0 80 300');
+      });
+    </script>
+  </body>
+</html>
